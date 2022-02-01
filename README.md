@@ -6,7 +6,7 @@ API ini memiliki fitur:
   - Login user
   - Menambah watchlist
   - Menghapus watchlist
-  - Melihat daftar watchlist\
+  - Melihat daftar watchlist
 
 API ini dapat diakses di [sini](https://movielist-api-tubes-arc.herokuapp.com/)
 ## Cara penggunaan
