@@ -4,7 +4,7 @@ const express = require("express");
 const app = express(); 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
-app.use(express.json());
+app.use(express.text())
 const auth = require("./middleware/auth");
 const User = require("./model/user");
 const List = require("./model/wishlist");
@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
 app.post("/api/list/add", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
-    const {movieId} = req.body
+    const {movieId} = JSON.parse(req.body)
     const userId = user_id
     
     const oldList = await List.findOne({ userId,  movieId });
@@ -67,7 +67,7 @@ app.get("/api/list", auth, async (req, res) => {
 app.delete("/api/list/delete", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
-    const {movieId} = req.body
+    const {movieId} = JSON.parse(req.body)
     const userId = user_id
 
     const list = await List.findOneAndDelete({ userId,  movieId });
@@ -89,7 +89,7 @@ app.post("/api/auth/register", async (req, res) => {
   // Our register logic starts here
   try {
     // Get user input
-    const { username, password } = req.body;
+    const { username, password } = JSON.parse(req.body);
 
     // Validate user input
     if (!(username && password)) {
@@ -138,11 +138,12 @@ app.post("/api/auth/login", async (req, res) => {
   // Our login logic starts here
   try {
     // Get user input
-    const { username, password } = req.body;
+    console.log(req)
+    const { username, password } = JSON.parse(req.body);
 
     // Validate user input
     if (!(username && password)) {
-      res.status(400).send("All input is required");
+      return res.status(400).send("All input is required");
     }
     // Validate if user exist in our database
     const user = await User.findOne({ username });
@@ -162,8 +163,9 @@ app.post("/api/auth/login", async (req, res) => {
 
       // user
       res.status(201).json((({ username, token }) => ({ username, token }))(user));
+    } else {
+        res.status(400).send("Invalid Credentials");
     }
-    res.status(400).send("Invalid Credentials");
   } catch (err) {
     console.log(err);
   }

@@ -1,6 +1,6 @@
 # Movie-list API
 ## Deskripsi
-API ini adalah back-end dari projek front-end [wwwscarlet/movie-list](https://github.com/wwwscarlet/movie-list)
+API ini adalah back-end dari proyek front-end [wwwscarlet/movie-list](https://github.com/wwwscarlet/movie-list)
 API ini memiliki fitur:
   - Menambah user
   - Login user
@@ -9,16 +9,19 @@ API ini memiliki fitur:
   - Melihat daftar wishlist
 API ini dapat diakses di [sini](https://movielist-api-tubes-arc.herokuapp.com/)
 ## Cara penggunaan
+#### Catatan
+1. Menggunakan access token
+Access token disematkan dalam header "x-access-token" pada tiap request manipulasi wishlist (fitur 3-5) sebagai bukti otentikasi user.
+2. Format body & content type
+Format body berupa string json, namun content-type request adalah text/plain.
 ### Menambah user
-1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/auth/register dengan body json berisi username & password
+1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/auth/register dengan body berisi username & password
 2. Response akan berisi username & access token jika berhasil
 3. Response akan berisi error jika user sudah ada
 ### Login
-1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/auth/login dengan body json berisi username & password
+1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/auth/login dengan body berisi username & password
 2. Response akan berisi username & access token jika berhasil
 3. Response akan berisi error jika data yang dikirimkan salah
-### Menggunakan access token
-Access token disematkan dalam header "x-access-token" pada tiap request manipulasi wishlist (fitur 3-5) sebagai bukti otentikasi user.
 ### Menambah wishlist
 1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/list/add dengan header berisi token dan body berisi ID TMDB film
 2. Response akan berisi entry wishlist jika berhasil
