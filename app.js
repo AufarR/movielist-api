@@ -74,7 +74,7 @@ app.delete("/api/list/delete", auth, async (req, res) => {
 });
 
 // Register
-app.post("api/auth/register", async (req, res) => {
+app.post("/api/auth/register", async (req, res) => {
 
   // Our register logic starts here
   try {
@@ -123,7 +123,7 @@ app.post("api/auth/register", async (req, res) => {
 });
 
 // Login
-app.post("api/auth/login", async (req, res) => {
+app.post("/api/auth/login", async (req, res) => {
 
   // Our login logic starts here
   try {
