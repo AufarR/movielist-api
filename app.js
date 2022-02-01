@@ -9,6 +9,16 @@ const auth = require("./middleware/auth");
 const User = require("./model/user");
 const List = require("./model/wishlist");
 
+// Homepage
+app.get("/", async (req, res) => {
+  try {
+    res.status(200)
+    res.send("There's nothing here. ¯\_(ツ)_/¯")
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 // Add wishlist entry
 app.post("/api/list/add", auth, async (req, res) => {
   try {
