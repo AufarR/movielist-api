@@ -9,8 +9,68 @@ const auth = require("./middleware/auth");
 const User = require("./model/user");
 const List = require("./model/wishlist");
 
-app.post("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
+// Add wishlist entry
+app.post("/list/add", auth, async (req, res) => {
+  try {
+    const {user_id, username} = req.user;
+    const {movieId} = req.body
+    const userId = user_id
+    
+    const oldList = await List.findOne({ userId,  movieId });
+
+    if (oldList) {
+      return res.status(409).send("Entry already exists.");
+    }
+    
+    const list = await List.create({
+      movieId,
+      userId
+    });
+    
+    res.status(201).json(list.movieId)
+
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// Get wishlist entry for a user
+app.get("/list", auth, async (req, res) => {
+  try {
+    const {user_id, username} = req.user;
+    const userId = user_id
+    
+    const list = await List.find({ userId });
+
+    if (!list) {
+      return res.status(409).send("No entry exists.");
+    }
+    
+    res.status(200).json(list)
+
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// Delete wishlist entry
+app.delete("/list/delete", auth, async (req, res) => {
+  try {
+    const {user_id, username} = req.user;
+    const {movieId} = req.body
+    const userId = user_id
+
+    const list = await List.findOneAndDelete({ userId,  movieId });
+    
+    if (!list) {
+      return res.status(409).send("No entry exists.");
+    }
+    
+    res.status(200).json(list)
+
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 // Register

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const listSchema = new mongoose.Schema({
-  id: { type: String},
-  username: { type: String }
+  movieId: { type: String},
+  userId: { type: String }
 });
 
-module.exports = mongoose.model("wishlist", listSchema);
+module.exports = mongoose.model("list", listSchema);
