@@ -1,6 +1,6 @@
 # Movie-list API
 ## Deskripsi
-API ini adalah back-end dari proyek front-end [wwwscarlet/TUGAS-ARC](https://github.com/wwwscarlet/TUGAS-ARC)\
+API ini adalah back-end dari proyek front-end [wwwscarlet/TUBES-ARC](https://github.com/wwwscarlet/TUBES-ARC)\
 API ini memiliki fitur:
   - Menambah user
   - Login user
