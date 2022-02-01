@@ -1,12 +1,12 @@
 # Movie-list API
 ## Deskripsi
-API ini adalah back-end dari proyek front-end [wwwscarlet/movie-list](https://github.com/wwwscarlet/movie-list)
+API ini adalah back-end dari proyek front-end [wwwscarlet/movie-list](https://github.com/wwwscarlet/movie-list)\
 API ini memiliki fitur:
   - Menambah user
   - Login user
   - Menambah wishlist
   - Menghapus wishlist
-  - Melihat daftar wishlist
+  - Melihat daftar wishlist\
 API ini dapat diakses di [sini](https://movielist-api-tubes-arc.herokuapp.com/)
 ## Cara penggunaan
 #### Catatan
