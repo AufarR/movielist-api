@@ -10,9 +10,9 @@ API ini memiliki fitur:
 API ini dapat diakses di [sini](https://movielist-api-tubes-arc.herokuapp.com/)
 ## Cara penggunaan
 #### Catatan
-1. Menggunakan access token
+  - Menggunakan access token
 Access token disematkan dalam header "x-access-token" pada tiap request manipulasi wishlist (fitur 3-5) sebagai bukti otentikasi user.
-2. Format body & content type
+  - Format body & content type
 Format body berupa string json, namun content-type request adalah text/plain.
 ### Menambah user
 1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/auth/register dengan body berisi username & password
