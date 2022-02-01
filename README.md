@@ -1,6 +1,6 @@
 # Movie-list API
 ## Deskripsi
-API ini adalah back-end dari proyek front-end [wwwscarlet/movie-list](https://github.com/wwwscarlet/movie-list)\
+API ini adalah back-end dari proyek front-end [wwwscarlet/TUGAS-ARC](https://github.com/wwwscarlet/TUGAS-ARC)\
 API ini memiliki fitur:
   - Menambah user
   - Login user
@@ -35,8 +35,12 @@ Format body berupa string json, namun content-type request adalah text/plain.
 1. Buat request GET ke https://movielist-api-tubes-arc.herokuapp.com/api/list dengan header berisi token
 2. Response akan berisi semua entry wishlist user tersebut dalam format json
 3. Response akan berisi error jika data yang dikirimkan salah atau entry tidak ada
-## Special thanks
+## Our team
 ### Back-end
-@semifinal-com @sozyGithub
+- Aufar Ramadhan (@AufarR)
+- I Putu Bakta Hari Sudewa (@sozyGithub)
+- Muhammad Abdul Aziz Ghazali (@semifinal-com)
 ### Front-end
-@ardhanurfan @ibrahimmm999 @wwwscarlet
+- Ardhan Nur Urfan (@ardhanurfan)
+- Imam Rusydi Ibrahim (@ibrahimmm999)
+- Made Debby Almadea Putri (@wwwscarlet)
