@@ -10,7 +10,7 @@ const User = require("./model/user");
 const List = require("./model/wishlist");
 
 // Add wishlist entry
-app.post("/list/add", auth, async (req, res) => {
+app.post("/api/list/add", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
     const {movieId} = req.body
@@ -35,7 +35,7 @@ app.post("/list/add", auth, async (req, res) => {
 });
 
 // Get wishlist entry for a user
-app.get("/list", auth, async (req, res) => {
+app.get("/api/list", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
     const userId = user_id
@@ -54,7 +54,7 @@ app.get("/list", auth, async (req, res) => {
 });
 
 // Delete wishlist entry
-app.delete("/list/delete", auth, async (req, res) => {
+app.delete("/api/list/delete", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
     const {movieId} = req.body
@@ -74,7 +74,7 @@ app.delete("/list/delete", auth, async (req, res) => {
 });
 
 // Register
-app.post("/register", async (req, res) => {
+app.post("api/auth/register", async (req, res) => {
 
   // Our register logic starts here
   try {
@@ -123,7 +123,7 @@ app.post("/register", async (req, res) => {
 });
 
 // Login
-app.post("/login", async (req, res) => {
+app.post("api/auth/login", async (req, res) => {
 
   // Our login logic starts here
   try {
