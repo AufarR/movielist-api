@@ -27,7 +27,7 @@ Format body berupa string json, namun content-type request adalah text/plain.
 2. Response akan berisi entry wishlist jika berhasil
 3. Response akan berisi error jika data yang dikirimkan salah atau entry sudah ada
 ### Menghapus wishlist
-1. Buat request DELETE ke https://movielist-api-tubes-arc.herokuapp.com/api/list/delete dengan header berisi token dan body berisi ID TMDB film
+1. Buat request POST ke https://movielist-api-tubes-arc.herokuapp.com/api/list/delete dengan header berisi token dan body berisi ID TMDB film
 2. Response akan berisi entry wishlist jika berhasil
 3. Response akan berisi error jika data yang dikirimkan salah atau entry tidak ada
 ### Melihat daftar wishlist
