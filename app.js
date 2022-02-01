@@ -4,6 +4,9 @@ const express = require("express");
 const app = express(); 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
+const cors = require("cors");
+app.use(cors())
+app.options('*', cors());
 app.use(express.text())
 const auth = require("./middleware/auth");
 const User = require("./model/user");
@@ -64,7 +67,7 @@ app.get("/api/list", auth, async (req, res) => {
 });
 
 // Delete wishlist entry
-app.delete("/api/list/delete", auth, async (req, res) => {
+app.post("/api/list/delete", auth, async (req, res) => {
   try {
     const {user_id, username} = req.user;
     const {movieId} = JSON.parse(req.body)
